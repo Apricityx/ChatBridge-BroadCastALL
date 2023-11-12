@@ -1,3 +1,5 @@
+### - 此fork唯一的功能就是将!!qq与!!mc发送消息改为直接转发所有消息而不需要指令
+
 # ChatBridge
 
 > Broadcast chat between Minecraft servers or even discord server
