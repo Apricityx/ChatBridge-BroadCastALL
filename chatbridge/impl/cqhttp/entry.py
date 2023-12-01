@@ -133,7 +133,7 @@ class CqHttpChatBridgeClient(ChatBridgeClient):
 			return
 		try:
 			try:
-				message = payload.message.split
+				message = payload.message
 			except:
 				pass
 			else:
