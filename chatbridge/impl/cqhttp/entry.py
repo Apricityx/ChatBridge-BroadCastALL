@@ -51,7 +51,7 @@ class CQBot(websocket.WebSocketApp):
 				return
 			data = json.loads(message)
 			if data.get('post_type') == 'message' and data.get('message_type') == 'group':
-				if data['anonymous'] is None and data['group_id'] == self.config.react_group_id:
+				if data.get('anonymous') is None and data['group_id'] == self.config.react_group_id:
 					self.logger.info('QQ chat message: {}'.format(data))
 					args = data['raw_message'].split(' ')
 
@@ -184,6 +184,7 @@ def main():
 	config = utils.load_config(ConfigFile, CqHttpConfig)
 	chatClient = CqHttpChatBridgeClient.create(config)
 	utils.start_guardian(chatClient)
+	utils.register_exit_on_termination()
 	print('Starting CQ Bot')
 	cq_bot = CQBot(config)
 	cq_bot.start()
